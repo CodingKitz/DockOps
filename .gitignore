@@ -1,0 +1,16 @@
+
+# Ignore Ansible config file
+ansible.cfg
+
+# Ignore inventory files
+inventory.yml
+inventory.yaml
+
+# Ignore group_vars and host_vars directories
+group_vars/**
+host_vars/**
+
+# Allow the template file to be tracked
+!host_vars/template.yml
+
+

@@ -1,0 +1,13 @@
+- name: Ensure Docker containers are running
+  community.docker.docker_container:
+    name: "{{ item.name }}"
+    image: "{{ item.image }}"
+    restart_policy: "{{ item.restart_policy | default('always') }}"
+    ports: "{{ item.ports | default([]) }}"
+    networks: "{{ item.networks | default([]) }}"
+    env: "{{ item.env | default({}) }}"
+    volumes: "{{ item.volumes | default([]) }}"
+    capabilities: "{{ item.capabilities | default([]) }}"
+    state: "{{ item.state | default('started') }}"
+  loop: "{{ docker_containers }}"
+  when: docker_containers is defined
