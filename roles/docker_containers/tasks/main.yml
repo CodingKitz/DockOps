@@ -9,5 +9,5 @@
     volumes: "{{ item.volumes | default([]) }}"
     capabilities: "{{ item.capabilities | default([]) }}"
     state: "{{ item.state | default('started') }}"
-  loop: "{{ docker_containers }}"
-  when: docker_containers is defined
+  loop: "{{ containers }}"
+  when: containers is defined
